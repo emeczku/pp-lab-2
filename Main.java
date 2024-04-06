@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -57,6 +58,22 @@ public class Main {
             System.out.println();
             System.out.println("Total sum of grades is " + sumOfGrades);
             System.out.println("Average sum of this grades is " + sumOfGrades / numberOfGrades);
+        }
+
+//        Task 5
+        for (int i = 0; i < grades.length; i++) {
+            double subjectMedian = calculateMedian(grades[i]);
+            System.out.println("Subject " + (i + 1) + " - Median: " + subjectMedian);
+        }
+
+    }
+    public static double calculateMedian(double[] grades) {
+        int length = grades.length;
+        Arrays.sort(grades);
+        if (length % 2 == 0) {
+            return (grades[length / 2 - 1] + grades[length / 2]) / 2.0;
+        } else {
+            return grades[length / 2];
         }
     }
 }
