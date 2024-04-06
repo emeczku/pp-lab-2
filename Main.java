@@ -17,14 +17,22 @@ public class Main {
             int numberOfGrades = scanner.nextInt();
             grades[i] = new double[numberOfGrades];
 
-//            Task 2
-            for(int j = 0; j < numberOfGrades; j++) {
-                System.out.print("Enter grade number " + (j + 1) + ": ");
-                grades[i][j] = scanner.nextDouble();
+//            Task 2 && 4
+            for (int j = 0; j < numberOfGrades; j++) {
+                int grade = 0;
+                while (grade <= 0 || grade > 6) {
+                    System.out.print("Enter grade number " + (j + 1) + " (1-5): ");
+                    grade = scanner.nextInt();
+                    if (grade > 0 && grade <= 5) {
+                        grades[i][j] = grade;
+                    } else {
+                        System.out.println("Invalid grade, please enter a grade between 1 and 6.");
+                    }
+                }
             }
         }
 
-//        Task 3
+
         double sum = 0;
         int totalNumberOfGrades = 0;
         for (double[] grade : grades) {
@@ -36,5 +44,19 @@ public class Main {
         double average = sum / totalNumberOfGrades;
 
         System.out.print("The average grade is " + average);
+
+//        Task 3
+        for (double[] grade : grades) {
+            double sumOfGrades = 0;
+            int numberOfGrades = 0;
+            for (double v : grade) {
+                sumOfGrades += v;
+                numberOfGrades++;
+                System.out.println("Grade: " + v);
+            }
+            System.out.println();
+            System.out.println("Total sum of grades is " + sumOfGrades);
+            System.out.println("Average sum of this grades is " + sumOfGrades / numberOfGrades);
+        }
     }
 }
