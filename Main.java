@@ -33,5 +33,18 @@ public class Main {
         double average = sum / totalNumberOfGrades;
 
         System.out.print("The average grade is " + average);
+
+        for (double[] grade : grades) {
+            double sumOfGrades = 0;
+            int numberOfGrades = 0;
+            for (double v : grade) {
+                sumOfGrades += v;
+                numberOfGrades++;
+                System.out.println("Grade: " + v);
+            }
+            System.out.println();
+            System.out.println("Total sum of grades is " + sumOfGrades);
+            System.out.println("Average sum of this grades is " + sumOfGrades / numberOfGrades);
+        }
     }
 }
